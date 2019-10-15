@@ -32,14 +32,14 @@ const scene = new THREE.Scene();
     const mtlLoader = new THREE.MTLLoader();
     mtlLoader.setPath('/blender-files/');
     new Promise((resolve) => {
-      mtlLoader.load('housev2.mtl', (materials) => {
+      mtlLoader.load('housev4.mtl', (materials) => {
         resolve(materials);
       });
     })
     .then((materials) => {
       materials.preload();
       objLoader.setMaterials(materials);
-      objLoader.load('housev2.obj', (object) => {
+      objLoader.load('housev4.obj', (object) => {
         room = object;
         scene.add(object);
       });
@@ -47,7 +47,7 @@ const scene = new THREE.Scene();
     function render() {
       if (room) {
         room.rotation.x += 0.00;
-        room.rotation.y += 0.001;
+        room.rotation.y += 0.005;
       }
       requestAnimationFrame(render);
       renderer.render(scene, camera);
