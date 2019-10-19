@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>PLUME.V.2(beta)</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.js"></script>
   <script src="./threejs-loader/OBJLoader.js"></script>
   <script src="./threejs-loader/MTLLoader.js"></script>
@@ -13,6 +13,8 @@
 </head>
 <body>
 <script>
+
+  
     let room;
 const scene = new THREE.Scene();
   const light = new THREE.HemisphereLight('#ffffff', 0.9);
@@ -24,7 +26,6 @@ const scene = new THREE.Scene();
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-
     //obj loader with path
     const objLoader = new THREE.OBJLoader();
     objLoader.setPath('/blender-files/');
