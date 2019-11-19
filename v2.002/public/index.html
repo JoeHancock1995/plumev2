@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PLUME.V.2(beta)</title>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/100/three.js"></script> -->
+  <script src="./threejs-loader/OBJLoader.js"></script>
+  <script src="./threejs-loader/MTLLoader.js"></script>
+  <script src="./js/app.js"></script>
+  <script src="./js/three.min.js"></script>
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+  </style>
+</head>
+<body>
+    <script>
+      var loader = new THREE.FileLoader();
+      loader.load( 'app.json', function ( text ) {
+
+      var player = new APP.Player();
+      player.load( JSON.parse( text ) );
+      player.setSize( window.innerWidth, window.innerHeight );
+      player.play();
+
+      document.body.appendChild( player.dom );
+
+      window.addEventListener( 'resize', function () {
+      player.setSize( window.innerWidth, window.innerHeight );
+      } );
+    } );
+    </script>
+  
+</body>
+</html>
