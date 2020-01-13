@@ -1,110 +1,126 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
-    <title>PUME V3.0</title>
-    <link href="./assets/fonts/">
-    <!-- Link to the last version of BabylonJS -->
-    <script src="https://preview.babylonjs.com/babylon.js"></script>
-    <!-- Link to the last version of BabylonJS loaders to enable loading filetypes such as .gltf -->
-    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-    <!-- Link to pep.js to ensure pointer events work consistently in all browsers -->
-    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
-    
-    <style>
-        html, body {
-            background-color: black;
-            color: white;
-            overflow: hidden;
-            width   : 100%;
-            height  : 100%;
-            margin  : 0;
-            padding : 0;
-        }
-        .text1{font-size: 42px;
-        text-align: center;
-        font-family: 'Crash';
-        float: right;
-        margin-right: 0% }
-        .text2{
-        text-align: right;
-        font-size: 32px;
-        font-family: 'Ionic Charge';
-        color: white;
-        margin-top: 20%}
-        #renderCanvas {
-            width   : 50%;
-            height  : 50%;
-            touch-action: none;
-        }
-    </style>
-</head>
-<body>
-    <canvas id="renderCanvas"></canvas>
-    <div class="text1">PLUME</div>
-    <div class="text2"> f o r m a t i o n  ////  t i m e  ////  v i o l e n c e</div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>PLUME-GALLERY</title>
+        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css">
+
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+    </head>
+
+   <body>
+
+    <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
+
     <script>
-        if (BABYLON.Engine.isSupported()) {
-            var canvas = document.getElementById("renderCanvas");
-            var engine = new BABYLON.Engine(canvas, true);
-    
-            BABYLON.SceneLoader.Load("", "scene.babylon", engine, function (newScene) {
-                // Wait for textures and shaders to be ready
-                newScene.executeWhenReady(function () {
-                    // Attach camera to canvas inputs
-                    newScene.activeCamera.attachControl(canvas);
-    
-                    // Once the scene is loaded, just register a render loop to render it
-                    engine.runRenderLoop(function() {
-                        newScene.render();
-                    });
-                });
-            }, function (progress) {
-                // To do: give progress feedback to user
-            });
-        }
-    </script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function() {
-            var canvas = document.getElementById('renderCanvas');
-            var engine = new BABYLON.Engine(canvas, true);
+        var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
+        var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
-            var createScene = function() {
-    // Create a basic BJS Scene object.
-    var scene = new BABYLON.Scene(engine);
+        var createScene = function () { //creates scene, light, camera
 
-    // Create a FreeCamera, and set its position to (x:0, y:5, z:-10).
-    var camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 5,-10), scene);
+            var scene = new BABYLON.Scene(engine); 
+            var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
 
-    // Target the camera to scene origin.
-    camera.setTarget(BABYLON.Vector3.Zero());
+            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(15, 11, -12), scene);
+            camera.setTarget(BABYLON.Vector3.Zero());
+            camera.attachControl(canvas, true);
 
-    // Attach the camera to the canvas.
-    camera.attachControl(canvas, false);
+            var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 104, height: 126, depth: 3}, scene);
+            var ceiling = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 104, height: 126, depth: 1}, scene);
 
-    // Create a basic light, aiming 0,1,0 - meaning, to the sky.
-    var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 15, width: 31, depth: 2}, scene); //behind the camera
+            var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 15, width: 2, depth: 86}, scene); //camera left
+            var box3 = BABYLON.MeshBuilder.CreateBox("box3", {height: 15, width: 100, depth: 2}, scene); //camera front
+            var box4 = BABYLON.MeshBuilder.CreateBox("box4", {height: 15, width: 2, depth: 124}, scene); //camera right
+            var box5 = BABYLON.MeshBuilder.CreateBox("box5", {height: 15, width: 2, depth: 124}, scene); // end of hall- far end
+            var box6 = BABYLON.MeshBuilder.CreateBox("box6", {height: 15, width: 100, depth: 2}, scene);  // behind camera far back
+            var box7 = BABYLON.MeshBuilder.CreateBox("box7", {height: 15, width: 38, depth: 2}, scene); // back quadrant divider wall
+            var galleryCube = BABYLON.MeshBuilder.CreateBox("galleryCube", {height: 15, width: 15, depth: 15}, scene);
 
-//     // Create a built-in "sphere" shape. 
-//     var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', {segments:16, diameter:2}, scene);
 
-//     // Move the sphere upward 1/2 of its height.
-//     sphere.position.y = 1;
+            //Walls location
+            ground.position = new BABYLON.Vector3(-26, 0, -38);
+            ceiling.position = new BABYLON.Vector3(-26, 15, -38);
 
-//     // Create a built-in "ground" shape.
-//     var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:6, width:6, subdivisions: 2}, scene);
+            box.position = new BABYLON.Vector3(7.5, 7.5, -36);
+            box2.position = new BABYLON.Vector3(-22.4, 7.5, -36);
+            box3.position = new BABYLON.Vector3(-26.5, 7.5, 22.5);
+            box4.position = new BABYLON.Vector3(24, 7.5, -38);
+            box5.position = new BABYLON.Vector3(-76, 7.5, -38);
+            box6.position = new BABYLON.Vector3(-26.5, 7.51, -98.5);
+            box7.position = new BABYLON.Vector3( -40, 7.5, -80);
+            galleryCube.position = new BABYLON.Vector3( -50, 7.5, 0);
 
-//     // Return the created scene.
-//     return scene;
-// }
-var scene = createScene();
-engine.runRenderLoop(function() {
-    scene.render();
-});
-window.addEventListener('resize', function() {
-    engine.resize();
-});
+            ground.rotation.z = Math.PI/2;
+            ground.rotation.x = Math.PI/2;
+            ground.rotation.y = Math.PI/2;
+            ceiling.rotation.z = Math.PI/2;
+            ceiling.rotation.x = Math.PI/2;
+            ceiling.rotation.y = Math.PI/2;
+
+
+            //Textures
+            var ceilingMaterial = new BABYLON.StandardMaterial("ceilingMaterial", scene);
+                ceilingMaterial.ambientTexture = new BABYLON.Texture("./assets/images/ss.png", scene);
+            var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
+                floorMaterial.ambientTexture = new BABYLON.Texture("./assets/images/23.png", scene);
+            var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
+                boxMaterial.ambientTexture = new BABYLON.Texture("./assets/images/20.jpg", scene);
+            var cubeMaterial = new BABYLON.StandardMaterial("cubeMaterial", scene);
+                cubeMaterial.ambientTexture = new BABYLON.Texture("./assets/images/ss5.jpg", scene);
+
+
+            //rendering the textures to the object
+            ground.material = floorMaterial;
+            ceiling.material = ceilingMaterial;
+            box.material = boxMaterial;
+            box2.material = boxMaterial;
+            box3.material = boxMaterial;
+            box4.material = boxMaterial;
+            box5.material = boxMaterial;
+            box6.material = boxMaterial;
+            box7.material = boxMaterial;
+            galleryCube.material = cubeMaterial;
+            
+
+            //collisions
+            scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+            camera.applyGravity = false;
+            camera.ellipsoid = new BABYLON.Vector3(2, 4, 2);
+            scene.collisionsEnabled = true;
+            camera.checkCollisions = true;
+
+            ground.checkCollisions = true;
+            ceiling.checkCollisions = true;
+            box.checkCollisions = true;
+            box2.checkCollisions = true;
+            box3.checkCollisions = true;
+            box4.checkCollisions = true;
+            box5.checkCollisions = true;
+            box6.checkCollisions = true;
+            box7.checkCollisions = true;
+            galleryCube.checkCollisions = true;
+
+            return scene;
+        };
+        /******* End of the create scene function ******/    
+        var scene = createScene(); //Call the createScene function
+
+        // Register a render loop to repeatedly render the scene
+        engine.runRenderLoop(function () { 
+                scene.render();
+        });
+
+        // Watch for browser/canvas resize events
+        window.addEventListener("resize", function () { 
+                engine.resize();
         });
     </script>
-</body>
+
+   </body>
+
 </html>
