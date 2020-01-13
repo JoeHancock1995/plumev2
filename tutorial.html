@@ -41,36 +41,46 @@
             var scene = new BABYLON.Scene(engine);
 
             // Add a camera to the scene and attach it to the canvas
-            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 12, -10), scene);
+            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(15, 6.5, -12), scene);
             camera.setTarget(BABYLON.Vector3.Zero());
-	        camera.attachControl(canvas, true);
+            camera.attachControl(canvas, true);
 
 	        var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
 
             // Add and manipulate meshes in the scene
-            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 25, width: 50, depth: 5}, scene);
-            var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 25, width: 5, depth: 30}, scene);
-            var box3 = BABYLON.MeshBuilder.CreateBox("box3", {height: 25, width: 50, depth: 5}, scene);
-            var box4 = BABYLON.MeshBuilder.CreateBox("box4", {height: 25, width: 5, depth: 50}, scene);
-            var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 50, height: 50, depth: 1}, scene);
+            var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 104, height: 100, depth: 3}, scene);
             var ground2 = BABYLON.MeshBuilder.CreateBox("ground2", {width: 50, height: 50, depth: 1}, scene);
 
-            var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-            myMaterial.ambientTexture = new BABYLON.Texture("./logov2.4.png", scene);
-            var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
-            floorMaterial.ambientTexture = new BABYLON.Texture("./Facade03_met.jpg", scene);
-            var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
-            boxMaterial.ambientTexture = new BABYLON.Texture("./brick1.jpg", scene);
+            //behind the camera
+            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 15, width: 46, depth: 2}, scene);
+            //camera left
+            var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 15, width: 2, depth: 29}, scene);
+            //camera front
+            var box3 = BABYLON.MeshBuilder.CreateBox("box3", {height: 15, width: 100, depth: 2}, scene);
+            //camera right
+            var box4 = BABYLON.MeshBuilder.CreateBox("box4", {height: 15, width: 2, depth: 46}, scene);
+            // end of hall- far end
+            var box5 = BABYLON.MeshBuilder.CreateBox("box5", {height: 15, width: 2, depth: 98}, scene);
 
-            box.position = new BABYLON.Vector3(0, 12.5, -22.5);
-            box2.position = new BABYLON.Vector3(-22.4, 12.5, -9.3);
-            box3.position = new BABYLON.Vector3(0, 12.5, 22.5);
-            box4.position = new BABYLON.Vector3(22.5, 12.5, 0);
-            ground2.position = new BABYLON.Vector3(0, 25, 0);
+            var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+            myMaterial.ambientTexture = new BABYLON.Texture("./6.jpg", scene);
+            var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
+            floorMaterial.ambientTexture = new BABYLON.Texture("9.jpg", scene);
+            var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
+            boxMaterial.ambientTexture = new BABYLON.Texture("./1.jpg", scene);
+
+            box.position = new BABYLON.Vector3(0, 7.5, -22.5);
+            box2.position = new BABYLON.Vector3(-22.4, 7.5, -9.3);
+            box3.position = new BABYLON.Vector3(-26.5, 7.5, 22.5);
+            box4.position = new BABYLON.Vector3(22.4, 7.5, -1.3);
+            box5.position = new BABYLON.Vector3(-76, 7.5, -25.0);
+            ground2.position = new BABYLON.Vector3(0, 15, 0);
+            ground.position = new BABYLON.Vector3(-26, 0, -25)
             box.material = boxMaterial;
             box2.material = boxMaterial;
             box3.material = boxMaterial;
             box4.material = boxMaterial;
+            box5.material = boxMaterial;
             ground2.material = myMaterial;
             ground.material = floorMaterial
             ground.rotation.z = Math.PI/2;
@@ -80,7 +90,20 @@
             ground2.rotation.x = Math.PI/2;
             ground2.rotation.y = Math.PI/2;
 
-            
+            //collisions
+            // scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+
+            // camera.applyGravity = true;
+            // camera.ellipsoid = new BABYLON.Vector3(2, 6, 2);
+            // scene.collisionsEnabled = true;
+            // camera.checkCollisions = true;
+
+            // ground.checkCollisions = true;
+            // ground2.checkCollisions = true;
+            // box.checkCollisions = true;
+            // box2.checkCollisions = true;
+            // box3.checkCollisions = true;
+            // box4.checkCollisions = true;
 
             return scene;
         };
