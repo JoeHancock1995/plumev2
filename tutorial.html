@@ -41,8 +41,8 @@
             var scene = new BABYLON.Scene(engine);
 
             // Add a camera to the scene and attach it to the canvas
-            var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, BABYLON.Vector3.Zero(), scene);
-            camera.setPosition(new BABYLON.Vector3(2, 2, 2));
+            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 0, -10), scene);
+            camera.setTarget(BABYLON.Vector3.Zero());
 	        camera.attachControl(canvas, true);
 
 	        var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
