@@ -41,7 +41,7 @@
             var scene = new BABYLON.Scene(engine);
 
             // Add a camera to the scene and attach it to the canvas
-            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(15, 8, -12), scene);
+            var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(15, 11, -12), scene);
             camera.setTarget(BABYLON.Vector3.Zero());
             camera.attachControl(canvas, true);
 
@@ -70,11 +70,13 @@
             var box8 = BABYLON.MeshBuilder.CreateBox("box8", {height: 15, width: 15, depth: 15}, scene);
 
             var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
-            myMaterial.ambientTexture = new BABYLON.Texture("./6.jpg", scene);
+            myMaterial.ambientTexture = new BABYLON.Texture("./ss.png", scene);
             var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
-            floorMaterial.ambientTexture = new BABYLON.Texture("brick1.jpg", scene);
+            floorMaterial.ambientTexture = new BABYLON.Texture("./23.png", scene);
             var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
-            boxMaterial.ambientTexture = new BABYLON.Texture("./Gunship1.jpg", scene);
+            boxMaterial.ambientTexture = new BABYLON.Texture("./20.jpg", scene);
+            var cubeMaterial = new BABYLON.StandardMaterial("cubeMaterial", scene);
+            cubeMaterial.ambientTexture = new BABYLON.Texture("./ss5.jpg", scene);
 
             box.position = new BABYLON.Vector3(7.5, 7.5, -36);
             box2.position = new BABYLON.Vector3(-22.4, 7.5, -36);
@@ -93,7 +95,7 @@
             box5.material = boxMaterial;
             box6.material = boxMaterial;
             box7.material = boxMaterial;
-            box8.material = boxMaterial;
+            box8.material = cubeMaterial;
             ground2.material = myMaterial;
             ground.material = floorMaterial
             ground.rotation.z = Math.PI/2;
@@ -105,14 +107,13 @@
 
             //collisions
             scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
-
             camera.applyGravity = false;
             camera.ellipsoid = new BABYLON.Vector3(2, 4, 2);
             scene.collisionsEnabled = true;
             camera.checkCollisions = true;
 
             ground.checkCollisions = true;
-            // ground2.checkCollisions = true;
+            ground2.checkCollisions = true;
             box.checkCollisions = true;
             box2.checkCollisions = true;
             box3.checkCollisions = true;
