@@ -42,30 +42,45 @@
 
             // Add a camera to the scene and attach it to the canvas
             var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 0, BABYLON.Vector3.Zero(), scene);
-    camera.setPosition(new BABYLON.Vector3(2, 2, 2));
-	camera.attachControl(canvas, true);
+            camera.setPosition(new BABYLON.Vector3(2, 2, 2));
+	        camera.attachControl(canvas, true);
 
-	var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
+	        var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
 
             // Add and manipulate meshes in the scene
-            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 25, width: 5, depth: 5}, scene);
+            var box = BABYLON.MeshBuilder.CreateBox("box", {height: 25, width: 50, depth: 5}, scene);
             var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 25, width: 5, depth: 5}, scene);
             var box3 = BABYLON.MeshBuilder.CreateBox("box3", {height: 25, width: 5, depth: 5}, scene);
-            var box4 = BABYLON.MeshBuilder.CreateBox("box4", {height: 25, width: 5, depth: 5}, scene);
+            var box4 = BABYLON.MeshBuilder.CreateBox("box4", {height: 25, width: 5, depth: 50}, scene);
             var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 50, height: 50, depth: 1}, scene);
             var ground2 = BABYLON.MeshBuilder.CreateBox("ground2", {width: 50, height: 50, depth: 1}, scene);
 
-            box.position = new BABYLON.Vector3(-22.5, 12.5, -22.5);
+            var myMaterial = new BABYLON.StandardMaterial("myMaterial", scene);
+            myMaterial.ambientTexture = new BABYLON.Texture("./logov2.4.png", scene);
+            var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
+            floorMaterial.ambientTexture = new BABYLON.Texture("./brick1.jpg", scene);
+            var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
+            boxMaterial.ambientTexture = new BABYLON.Texture("./1.jpg", scene);
+
+            box.position = new BABYLON.Vector3(0, 12.5, -22.5);
             box2.position = new BABYLON.Vector3(22.5, 12.5, 22.5);
             box3.position = new BABYLON.Vector3(-22.5, 12.5, 22.5);
-            box4.position = new BABYLON.Vector3(22.5, 12.5, -22.5);
+            box4.position = new BABYLON.Vector3(22.5, 12.5, 0);
             ground2.position = new BABYLON.Vector3(0, 25, 0);
+            box.material = boxMaterial;
+            box2.material = boxMaterial;
+            box3.material = boxMaterial;
+            box4.material = boxMaterial;
+            ground2.material = myMaterial;
+            ground.material = floorMaterial
             ground.rotation.z = Math.PI/2;
             ground.rotation.x = Math.PI/2;
             ground.rotation.y = Math.PI/2;
             ground2.rotation.z = Math.PI/2;
             ground2.rotation.x = Math.PI/2;
             ground2.rotation.y = Math.PI/2;
+
+            
 
             return scene;
         };
