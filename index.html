@@ -15,7 +15,7 @@
     </head>
 
    <body>
-    <div class="text1">PLUME</div>
+    <!-- <div class="text1">PLUME</div> -->
     <!-- <div class="text2"> f o r m a t i o n  ////  t i m e  ////  v i o l e n c e</div>
     <div class="text3">View art gallery in the first rendering of the PLUME gallery by moving the arrows and mouse to navigate</div> -->
     <canvas id="renderCanvas" touch-action="none"></canvas> 
@@ -60,12 +60,12 @@
             var picture9 = BABYLON.MeshBuilder.CreateBox("picture9", {height: 10, width: .2, depth: 17}, scene); //gallery picture 6
             var picture10 = BABYLON.MeshBuilder.CreateBox("picture10", {height: 10, width: .2, depth: 17}, scene); //gallery picture 6
             var picture11 = BABYLON.MeshBuilder.CreateBox("picture11", {height: 10, width: .2, depth: 17}, scene); //gallery picture 6
-            
+            //
             var picture12 = BABYLON.MeshBuilder.CreateBox("picture", {height: 10, width: 20, depth: .2}, scene); //gallery picture 1
-            var picture13 = BABYLON.MeshBuilder.CreateBox("picture2", {height: 10, width:12.5 , depth: .2}, scene); //gallery picture 2
-            var picture14 = BABYLON.MeshBuilder.CreateBox("picture3", {height: 10 , width: 17, depth: .2}, scene); //gallery picture 3
-            var picture15 = BABYLON.MeshBuilder.CreateBox("picture4", {height: 10, width: 17, depth: .2}, scene); //gallery picture 4
-            var picture16 = BABYLON.MeshBuilder.CreateBox("picture5", {height: 10, width: 12.5, depth: .2}, scene); //gallery picture 5
+            var picture13 = BABYLON.MeshBuilder.CreateBox("picture2", {height: 10, width:20 , depth: .2}, scene); //gallery picture 2
+            var picture14 = BABYLON.MeshBuilder.CreateBox("picture3", {height: 10 , width: 20, depth: .2}, scene); //gallery picture 3
+            var picture15 = BABYLON.MeshBuilder.CreateBox("picture4", {height: 10, width: 20, depth: .2}, scene); //gallery picture 4
+            // var picture16 = BABYLON.MeshBuilder.CreateBox("picture5", {height: 10, width: 12.5, depth: .2}, scene); //gallery picture 5
 
             //Walls location
             ground.position = new BABYLON.Vector3(-26, 0, -38);
@@ -90,22 +90,22 @@
             picture7.position = new BABYLON.Vector3(23, 7.5 ,-7.5);
             picture8.position = new BABYLON.Vector3(23, 7.5, -25);
 
-            picture9.position = new BABYLON.Vector3(23, 7.5, -45);
-            picture10.position = new BABYLON.Vector3(23, 7.5 ,-65);
-            picture11.position = new BABYLON.Vector3(23, 7.5, -85);
+            picture9.position = new BABYLON.Vector3(23, 7.5, -48);
+            picture10.position = new BABYLON.Vector3(23, 7.5 ,-67.5);
+            picture11.position = new BABYLON.Vector3(23, 7.5, -87);
 
             picture12.position = new BABYLON.Vector3(10, 7.5, -97.5);
-            picture13.position = new BABYLON.Vector3(-8, 7.5, -97.5);
-            picture14.position = new BABYLON.Vector3(-26, 7.5, -97.5);
-            picture15.position = new BABYLON.Vector3(-46, 7.5, -97.5);
-            picture16.position = new BABYLON.Vector3(-62, 7.5, -97.5);
+            picture13.position = new BABYLON.Vector3(-14, 7.5, -97.5);
+            picture14.position = new BABYLON.Vector3(-38, 7.5, -97.5);
+            picture15.position = new BABYLON.Vector3(-62, 7.5, -97.5);
+            // picture16.position = new BABYLON.Vector3(-62, 7.5, -97.5);
 
             ground.rotation.z = Math.PI/2;
             ground.rotation.x = Math.PI/2;
             ground.rotation.y = Math.PI/2;
-            ceiling.rotation.z = Math.PI/2;
+            ceiling.rotation.z = Math.PI/-2;
             ceiling.rotation.x = Math.PI/2;
-            ceiling.rotation.y = Math.PI/2;
+            ceiling.rotation.y = Math.PI/-2;
             picture6.rotation.x = Math.PI/-2;
             picture7.rotation.x = Math.PI/-2;
             picture8.rotation.y = Math.PI/2;
