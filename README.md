@@ -12,6 +12,4 @@ This is a project aimed at turning the plumesounding.com website into a walkable
 
 ![](https://github.com/JoeHancock1995/plumev2/blob/master/Screen%20Shot%202020-01-15%20at%203.32.40%20AM.png?raw=true)
 
-
-
 # 
