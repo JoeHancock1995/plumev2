@@ -15,8 +15,10 @@
     </head>
 
    <body>
-
-    <canvas id="renderCanvas" touch-action="none"></canvas> //touch-action="none" for best results from PEP
+    <div class="text1">PLUME</div>
+    <!-- <div class="text2"> f o r m a t i o n  ////  t i m e  ////  v i o l e n c e</div>
+    <div class="text3">View art gallery in the first rendering of the PLUME gallery by moving the arrows and mouse to navigate</div> -->
+    <canvas id="renderCanvas" touch-action="none"></canvas> 
 
     <script>
         var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
@@ -113,11 +115,11 @@
             var ceilingMaterial = new BABYLON.StandardMaterial("ceilingMaterial", scene);
                 ceilingMaterial.ambientTexture = new BABYLON.Texture("./assets/images/ss.png", scene);
             var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
-                floorMaterial.ambientTexture = new BABYLON.Texture("./assets/images/yb.jpg", scene);
+                floorMaterial.ambientTexture = new BABYLON.Texture("./assets/images/tile2.jpg", scene);
             var boxMaterial = new BABYLON.StandardMaterial("boxMaterial", scene);
-                boxMaterial.ambientTexture = new BABYLON.Texture("./assets/images/30.jpg", scene);
+                boxMaterial.ambientTexture = new BABYLON.Texture("./assets/images/metal2.jpg", scene);
             var cubeMaterial = new BABYLON.StandardMaterial("cubeMaterial", scene);
-                cubeMaterial.ambientTexture = new BABYLON.Texture("./assets/images/ss5.jpg", scene);
+                cubeMaterial.ambientTexture = new BABYLON.Texture("./assets/images/26.jpg", scene);
             var pictureimg = new BABYLON.StandardMaterial("pictureimg", scene);
                 pictureimg.ambientTexture = new BABYLON.Texture("./assets/images/logov2.4.png")
             var picture2img = new BABYLON.StandardMaterial("picture2img", scene);
@@ -159,7 +161,7 @@
 
             //collisions
             scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
-            camera.applyGravity = false;
+            camera.applyGravity = true;
             camera.ellipsoid = new BABYLON.Vector3(2, 4, 2);
             scene.collisionsEnabled = true;
             camera.checkCollisions = true;
