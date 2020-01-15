@@ -6,7 +6,7 @@ This is a project aimed at turning the plumesounding.com website into a walkable
 
 ### Images of project
 
-![](/Users/Joe/Desktop/Screen Shot 2020-01-15 at 3.31.52 AM.png)
+![](Screen Shot 2020-01-15 at 3.31.52 AM.png)
 
 
 
