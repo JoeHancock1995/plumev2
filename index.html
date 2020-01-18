@@ -9,9 +9,13 @@
 
         <script src="https://preview.babylonjs.com/babylon.js"></script>
         <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+
+        <script src="https://cdn.babylonjs.com/babylon.max.js"></script>
+        
         <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
         <script src="https://cdn.babylonjs.com/babylon.js"></script>
         <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
     </head>
 
    <body>
@@ -24,6 +28,7 @@
         var canvas = document.getElementById("renderCanvas"); // Get the canvas element 
         var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 
+                
         var createScene = function () { //creates scene, light, camera
 
             var scene = new BABYLON.Scene(engine); 
@@ -31,9 +36,9 @@
             var light = new BABYLON.HemisphericLight("hemi", new BABYLON.Vector3(0, 1, 0), scene);
 
             var camera = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(15, 11, -12), scene);
-            camera.setTarget(BABYLON.Vector3.Zero());
-            camera.attachControl(canvas, true);
-
+                camera.setTarget(BABYLON.Vector3.Zero());
+                camera.attachControl(canvas, true);
+                
             var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 104, height: 126, depth: 3}, scene);
             var ceiling = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 104, height: 126, depth: 3}, scene);
 
@@ -161,9 +166,9 @@
 
             //collisions
             scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
-            camera.applyGravity = true;
+            camera.applyGravity = false;
             camera.ellipsoid = new BABYLON.Vector3(2, 4, 2);
-            scene.collisionsEnabled = true;
+            scene.collisionsEnabled = false;
             camera.checkCollisions = true;
 
             ground.checkCollisions = true;
@@ -177,10 +182,22 @@
             box7.checkCollisions = true;
             galleryCube.checkCollisions = true;
 
+
+
             return scene;
         };
         /******* End of the create scene function ******/    
         var scene = createScene(); //Call the createScene function
+        // var assetsManager = new BABYLON.AssetsManager(scene);
+        // var meshTask = assetsManager.addMeshTask("bench task", "", "./assets/models/", "bench.babylon");
+        // meshTask.onSuccess = function (task) {
+        // task.loadedMeshes[0].position = BABYLON.Vector3.Zero();
+        // }
+        // meshTask.onError = function (task, message, exception) {
+        // console.log(message, exception);
+        // }
+        // assetsManager.load();
+
 
         // Register a render loop to repeatedly render the scene
         engine.runRenderLoop(function () { 
