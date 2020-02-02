@@ -46,9 +46,10 @@
 
             var box = BABYLON.MeshBuilder.CreateBox("box", {height: 16, width: 31, depth: 2}, scene); //behind the camera
                 var picture5 = BABYLON.MeshBuilder.CreateBox("picture5", {height: 10, width: 20, depth: .2}, scene); //gallery picture 5
-            
             var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 16, width: 2, depth: 86}, scene); //divider wall
-
+                var picture21 = BABYLON.MeshBuilder.CreateBox("picture2", {height: 10, width: .2 , depth: 20}, scene); 
+                var picture22 = BABYLON.MeshBuilder.CreateBox("picture3", {height: 10 , width: .2, depth: 20}, scene); 
+                var picture23 = BABYLON.MeshBuilder.CreateBox("picture3", {height: 10 , width: .2, depth: 20}, scene); 
             var box3 = BABYLON.MeshBuilder.CreateBox("box3", {height: 16, width: 100, depth: 2}, scene); //behind camera
                 var picture = BABYLON.MeshBuilder.CreateBox("picture", {height: 10, width: 20, depth: .2}, scene); 
                 var picture2 = BABYLON.MeshBuilder.CreateBox("picture2", {height: 10, width:20 , depth: .2}, scene);
@@ -99,7 +100,9 @@
             box.position = new BABYLON.Vector3(7.5, 0, -36);
                 picture5.position = new BABYLON.Vector3(7, -1, -37);
             box2.position = new BABYLON.Vector3(-8, 0, -36);
-
+                picture21.position = new BABYLON.Vector3(-9, -1, -11.5);
+                picture22.position = new BABYLON.Vector3(-9, -1, -37.);
+                picture23.position = new BABYLON.Vector3(-9, -1, -62.5);
             box3.position = new BABYLON.Vector3(-26.5, 0, 22.5);
                 picture.position = new BABYLON.Vector3(10, -1, 21.5);
                 picture2.position = new BABYLON.Vector3(-14, -1, 21.5);
@@ -275,6 +278,8 @@
             galleryCube2.checkCollisions = true;
             galleryCube3.checkCollisions = true;
             galleryCube4.checkCollisions = true;
+            galleryCube5.checkCollisions = true;
+            galleryCube6.checkCollisions = true;
 
 
 
