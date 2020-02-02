@@ -114,10 +114,10 @@
 
             var box8 = BABYLON.MeshBuilder.CreateBox("box8", {height: 32, width: 2, depth: 30}, scene);            
             var box9 = BABYLON.MeshBuilder.CreateBox("box9", {height: 16, width: 2, depth: 53.5}, scene);
-            var box10 = BABYLON.MeshBuilder.CreateBox("box10", {height: 16, width: 2, depth: 51.5}, scene);
+            var box10 = BABYLON.MeshBuilder.CreateBox("box10", {height: 16, width: 2, depth: 51.5}, scene); // inner wall 2nd floor
             var box11 = BABYLON.MeshBuilder.CreateBox("box11", {height: 32, width: 54, depth: 2}, scene);
-            var box12 = BABYLON.MeshBuilder.CreateBox("box12", {height: 32, width: 19, depth: 2}, scene);
-            var box13 = BABYLON.MeshBuilder.CreateBox("box13", {height: 32, width: 19, depth: 2}, scene);
+            var box12 = BABYLON.MeshBuilder.CreateBox("box12", {height: 32, width: 19, depth: 2}, scene); // stair case side wall
+            var box13 = BABYLON.MeshBuilder.CreateBox("box13", {height: 32, width: 19, depth: 2}, scene); // stair case side walls
 
             var galleryCube = BABYLON.MeshBuilder.CreateBox("galleryCube", {height: 15, width: 2.5, depth: 2.5}, scene);
                 var columnTrim = BABYLON.MeshBuilder.CreateBox("columnTrim", {height: .5, width: 3, depth: 3}, scene);
@@ -194,7 +194,7 @@
                 picture16.position = new BABYLON.Vector3(-40, -.5, -79);
             box8.position = new BABYLON.Vector3( -94, 8, -34);
             box9.position = new BABYLON.Vector3(24, 16, -74);
-            box10.position = new BABYLON.Vector3(-50, 16, -50);
+            box10.position = new BABYLON.Vector3(-50, 16, -49.5);
             
             box11.position = new BABYLON.Vector3(-48, 24, -98.9);
             box12.position = new BABYLON.Vector3(-85.5, 8, -50);
@@ -351,8 +351,16 @@
             box3.material = boxMaterial;
             box4.material = boxMaterial;
             box5.material = boxMaterial;
+            box5_2.material = boxMaterial;
             box6.material = boxMaterial;
             box7.material = boxMaterial;
+            box8.material = boxMaterial;
+            box9.material = boxMaterial;
+            box10.material = boxMaterial;
+            box11.material = boxMaterial;
+            box12.material = boxMaterial;
+            box13.material = boxMaterial;
+            
             galleryCube.material = cubeMaterial;
             galleryCube2.material = cubeMaterial;
             galleryCube3.material = cubeMaterial;
