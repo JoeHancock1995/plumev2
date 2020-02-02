@@ -46,7 +46,7 @@
 
             var box = BABYLON.MeshBuilder.CreateBox("box", {height: 16, width: 31, depth: 2}, scene); //behind the camera
                 var picture21 = BABYLON.MeshBuilder.CreateBox("picture21", {height: 12, width: 24 , depth: .2}, scene); 
-                var picture5 = BABYLON.MeshBuilder.CreateBox("picture5", {height: 12, width: 20, depth: .2}, scene); //gallery picture 5
+                var picture5 = BABYLON.MeshBuilder.CreateBox("picture5", {height: 12, width: 20, depth: .2}, scene);
             var box2 =BABYLON.MeshBuilder.CreateBox("box2", {height: 16, width: 2, depth: 86}, scene); //divider wall
                 var picture22 = BABYLON.MeshBuilder.CreateBox("picture22", {height: 14 , width: 14, depth: .2}, scene); 
                 var picture23 = BABYLON.MeshBuilder.CreateBox("picture23", {height: 14 , width: 14, depth: .2}, scene); 
@@ -61,6 +61,7 @@
                 var picture7 = BABYLON.MeshBuilder.CreateBox("picture7", {height: 24, width: .2, depth: 12}, scene); 
                 var picture8 = BABYLON.MeshBuilder.CreateBox("picture8", {height: 12, width: 17, depth: .2}, scene); 
                 var picture25 = BABYLON.MeshBuilder.CreateBox("picture25", {height: 12 , width: 17, depth: .2}, scene); 
+                var picture28 = BABYLON.MeshBuilder.CreateBox("picture21", {height: 12, width: 24 , depth: .2}, scene); // behind the quadrant
                 var picture9 = BABYLON.MeshBuilder.CreateBox("picture9", {height: 17, width: .2, depth: 10}, scene); //left back quadrant
                 var picture10 = BABYLON.MeshBuilder.CreateBox("picture10", {height: 10, width: 17, depth: .2}, scene);
                 var picture11 = BABYLON.MeshBuilder.CreateBox("picture11", {height: 10, width: 17, depth: .2}, scene); 
@@ -76,6 +77,7 @@
                 var picture15 = BABYLON.MeshBuilder.CreateBox("picture15", {height: 10, width: 20, depth: .2}, scene); 
             var box7 = BABYLON.MeshBuilder.CreateBox("box7", {height: 16, width: 38, depth: 2}, scene); // back quadrant divider wall
                 var picture16 = BABYLON.MeshBuilder.CreateBox("picture16", {height: 12, width: 24, depth: .2}, scene); 
+
             var galleryCube = BABYLON.MeshBuilder.CreateBox("galleryCube", {height: 15, width: 2.5, depth: 2.5}, scene);
                 var columnTrim = BABYLON.MeshBuilder.CreateBox("columnTrim", {height: .5, width: 3, depth: 3}, scene);
                 var columnTrim2 = BABYLON.MeshBuilder.CreateBox("columnTrim", {height: .5, width: 3, depth: 3}, scene);
@@ -116,6 +118,7 @@
                 picture7.position = new BABYLON.Vector3(23, -1 ,-20);
                 picture8.position = new BABYLON.Vector3(-7, -1, -25);
                 picture25.position = new BABYLON.Vector3(-7, -1 , -5);
+                picture28.position = new BABYLON.Vector3(-7, -1 , -60);
                 picture9.position = new BABYLON.Vector3(23, -1, -48);
                 picture10.position = new BABYLON.Vector3(23, -1 ,-67.5);
                 picture11.position = new BABYLON.Vector3(23, -1, -87);
@@ -177,6 +180,7 @@
             picture23.rotation.y = Math.PI/2;
             picture24.rotation.y = Math.PI/2;
             picture25.rotation.y = Math.PI/-2;
+            picture28.rotation.y = Math.PI/-2;
 
 
             //Textures
@@ -241,6 +245,8 @@
                 picture24img.ambientTexture = new BABYLON.Texture("./assets/images/60.jpg");
             var picture25img = new BABYLON.StandardMaterial("picture25img", scene);
                 picture25img.ambientTexture = new BABYLON.Texture("./assets/images/comp3.jpg");
+            var picture28img = new BABYLON.StandardMaterial("picture28img", scene);
+                picture28img.ambientTexture = new BABYLON.Texture("./assets/images/grade.png");
             
             //rendering the textures to the object
             ground.material = floorMaterial;
@@ -276,7 +282,6 @@
             picture3.material = picture3img;
             picture4.material = picture4img;
             picture5.material = picture5img;
-            // picture5_2.material = picture5_2img;
             picture6.material = picture6img;
             picture7.material = picture7img;
             picture8.material = picture8img;
@@ -297,6 +302,7 @@
             picture23.material = picture23img;
             picture24.material = picture24img;
             picture25.material = picture25img;
+            picture28.material = picture28img;
 
             //collisions
             scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
