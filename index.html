@@ -19,9 +19,10 @@
     </head>
 
    <body>
-
+<!-- 
     <div class="text1">PLUME</div>
-    <div class="text2">View art gallery in the first rendering of the PLUME gallery by clicking below and using the arrows in addition to the mouse to look around</div>
+    <div class="nav">Image Gallery</div>
+    <div class="view">View art gallery in the first rendering of the PLUME gallery by clicking below and using the arrows in addition to the mouse to look around</div> -->
 
     <canvas id="renderCanvas" touch-action="none"></canvas> 
 
@@ -68,8 +69,8 @@
             var picture8 = BABYLON.MeshBuilder.CreateBox("picture8", {height: 10, width: 17, depth: .2}, scene); //gallery picture 6
             //left behind camera wall back quadrant
             var picture9 = BABYLON.MeshBuilder.CreateBox("picture9", {height: 17, width: .2, depth: 10}, scene); //gallery picture 6
-            var picture10 = BABYLON.MeshBuilder.CreateBox("picture10", {height: 10, width: .2, depth: 17}, scene); //gallery picture 6
-            var picture11 = BABYLON.MeshBuilder.CreateBox("picture11", {height: 10, width: .2, depth: 17}, scene); //gallery picture 6
+            var picture10 = BABYLON.MeshBuilder.CreateBox("picture10", {height: 10, width: 17, depth: .2}, scene); //gallery picture 6
+            var picture11 = BABYLON.MeshBuilder.CreateBox("picture11", {height: 10, width: 17, depth: .2}, scene); //gallery picture 6
             //far back wall
             var picture12 = BABYLON.MeshBuilder.CreateBox("picture", {height: 10, width: 20, depth: .2}, scene); //gallery picture 1
             var picture13 = BABYLON.MeshBuilder.CreateBox("picture2", {height: 10, width:20 , depth: .2}, scene); //gallery picture 2
@@ -126,6 +127,12 @@
             picture7.rotation.x = Math.PI/-2;
             picture8.rotation.y = Math.PI/2;
             picture9.rotation.x = Math.PI/-2;
+            picture10.rotation.y = Math.PI/2;
+            picture11.rotation.y = Math.PI/2;
+            picture12.addRotation(0, 0, Math.PI/2).addRotation(0, 0, Math.PI/2);
+            picture13.addRotation(0, 0, Math.PI/2).addRotation(0, 0, Math.PI/2);
+            picture14.addRotation(0, 0, Math.PI/2).addRotation(0, 0, Math.PI/2);
+            picture15.addRotation(0, 0, Math.PI/2).addRotation(0, 0, Math.PI/2);
   
 
 
@@ -222,6 +229,8 @@
             box7.checkCollisions = true;
             galleryCube.checkCollisions = true;
             galleryCube2.checkCollisions = true;
+            galleryCube3.checkCollisions = true;
+            galleryCube4.checkCollisions = true;
 
 
 
