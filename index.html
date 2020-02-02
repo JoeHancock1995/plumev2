@@ -69,7 +69,7 @@
             var ceiling = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 104, height: 126, depth: 2}, scene);
             var ground2 = BABYLON.MeshBuilder.CreateBox("ground", {width: 117, height: 82, depth: 2}, scene);
             var ceiling2 = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 62, height: 62, depth: 2}, scene);
-            var ceiling2_2 = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 56, height: 62, depth: 2}, scene);
+            var ceiling2_2 = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 56.5, height: 62, depth: 2}, scene);
 
             var box = BABYLON.MeshBuilder.CreateBox("box", {height: 16, width: 31, depth: 2}, scene); //behind the camera
                 var picture21 = BABYLON.MeshBuilder.CreateBox("picture21", {height: 12, width: 24 , depth: .2}, scene); 
@@ -112,10 +112,12 @@
             var box7 = BABYLON.MeshBuilder.CreateBox("box7", {height: 16, width: 38, depth: 2}, scene); // back quadrant divider wall
                 var picture16 = BABYLON.MeshBuilder.CreateBox("picture16", {height: 12, width: 24, depth: .2}, scene); 
 
-            var box8 = BABYLON.MeshBuilder.CreateBox("box6", {height: 32, width: 2, depth: 30}, scene);            
-            var box9 = BABYLON.MeshBuilder.CreateBox("box6", {height: 16, width: 2, depth: 53.5}, scene);
-            var box10 = BABYLON.MeshBuilder.CreateBox("box6", {height: 16, width: 2, depth: 22}, scene);
-            var box11 = BABYLON.MeshBuilder.CreateBox("box6", {height: 32, width: 52, depth: 2}, scene);
+            var box8 = BABYLON.MeshBuilder.CreateBox("box8", {height: 32, width: 2, depth: 30}, scene);            
+            var box9 = BABYLON.MeshBuilder.CreateBox("box9", {height: 16, width: 2, depth: 53.5}, scene);
+            var box10 = BABYLON.MeshBuilder.CreateBox("box10", {height: 16, width: 2, depth: 22}, scene);
+            var box11 = BABYLON.MeshBuilder.CreateBox("box11", {height: 32, width: 54, depth: 2}, scene);
+            var box12 = BABYLON.MeshBuilder.CreateBox("box12", {height: 32, width: 19, depth: 2}, scene);
+            var box13 = BABYLON.MeshBuilder.CreateBox("box13", {height: 32, width: 19, depth: 2}, scene);
 
             var galleryCube = BABYLON.MeshBuilder.CreateBox("galleryCube", {height: 15, width: 2.5, depth: 2.5}, scene);
                 var columnTrim = BABYLON.MeshBuilder.CreateBox("columnTrim", {height: .5, width: 3, depth: 3}, scene);
@@ -154,7 +156,7 @@
             ceiling.position = new BABYLON.Vector3(-26, 8, -38);
             ground2.position = new BABYLON.Vector3(-26, 24, -10);
             ceiling2.position = new BABYLON.Vector3(-52, 40, -75);
-            ceiling2_2.position = new BABYLON.Vector3(4.5, 24, -74);
+            ceiling2_2.position = new BABYLON.Vector3(4.25, 24, -74);
 
             box.position = new BABYLON.Vector3(7.5, 0, -36);
                 picture5.position = new BABYLON.Vector3(7, -1, -37);
@@ -190,10 +192,12 @@
                 picture15.position = new BABYLON.Vector3(-62, -1, -97.5);
             box7.position = new BABYLON.Vector3( -40, 0, -80);
                 picture16.position = new BABYLON.Vector3(-40, -.5, -79);
-            box8.position = new BABYLON.Vector3( -90, 8, -34);
+            box8.position = new BABYLON.Vector3( -94, 8, -34);
             box9.position = new BABYLON.Vector3(24, 16, -74);
             box10.position = new BABYLON.Vector3(24, 16, -3.51);
-            box11.position = new BABYLON.Vector3(-50, 24, -98.9);
+            box11.position = new BABYLON.Vector3(-48, 24, -98.9);
+            box12.position = new BABYLON.Vector3(-85.5, 8, -50);
+            box13.position = new BABYLON.Vector3(-85.5, 8, -20);
 
 
             galleryCube.position = new BABYLON.Vector3( -56, 0, 0);
@@ -266,7 +270,6 @@
             skybox4Material.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_lfk.png", scene);
             var skyboxbottomMaterial = new BABYLON.StandardMaterial("skyboxbottomMaterial", scene);
             skyboxbottomMaterial.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_dn.png", scene); 
-                
             var ceilingMaterial = new BABYLON.StandardMaterial("ceilingMaterial", scene);
                 ceilingMaterial.ambientTexture = new BABYLON.Texture("./assets/images/27.jpg", scene);
             var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
