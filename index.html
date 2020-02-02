@@ -58,6 +58,12 @@
     //     // Rotate the camera by 180 degrees to the front of the asset.
     //     scene.activeCamera.alpha += Math.PI;
     // });
+            var skyboxtop = BABYLON.MeshBuilder.CreateBox("skyboxtop", {width: 200, height: 2, depth: 200}, scene);
+            var skyboxside1 = BABYLON.MeshBuilder.CreateBox("skyboxside1", {width: 2, height: 200, depth: 200}, scene);
+            var skyboxside2 = BABYLON.MeshBuilder.CreateBox("skyboxside2", {width: 200, height: 200, depth: 2}, scene);
+            var skyboxside3 = BABYLON.MeshBuilder.CreateBox("skyboxside3", {width: 2, height: 200, depth: 200}, scene);
+            var skyboxside4 = BABYLON.MeshBuilder.CreateBox("skyboxside4", {width: 200, height: 200, depth: 2}, scene);
+            var skyboxbottom = BABYLON.MeshBuilder.CreateBox("skyboxbottom", {width: 200, height: 2, depth: 200}, scene);
 
             var ground = BABYLON.MeshBuilder.CreateBox("ground", {width: 104, height: 126, depth: 2}, scene);
             var ceiling = BABYLON.MeshBuilder.CreateBox("ceiling", {width: 104, height: 126, depth: 2}, scene);
@@ -137,6 +143,12 @@
        
     
             //Walls location
+            skyboxtop.position = new BABYLON.Vector3(-26, 190, -38);
+            skyboxside1.position = new BABYLON.Vector3(-150, 90, 0);
+            skyboxside2.position = new BABYLON.Vector3(0, 90, 150);
+            skyboxside3.position = new BABYLON.Vector3(150, 90, 0);
+            skyboxside4.position = new BABYLON.Vector3(0, 90, -150);
+            skyboxbottom.position = new BABYLON.Vector3(-26, -10, -38);
             ground.position = new BABYLON.Vector3(-26, -9, -38);
             ceiling.position = new BABYLON.Vector3(-26, 8, -38);
             ground2.position = new BABYLON.Vector3(-26, 24, -10);
@@ -241,6 +253,15 @@
 
 
             //Textures
+            var skybox1Material = new BABYLON.StandardMaterial("skybox1Material", scene);
+            skybox1Material.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_bk.png", scene);
+            var skybox2Material = new BABYLON.StandardMaterial("skybox2Material", scene);
+            skybox2Material.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_ft.png", scene);
+            var skybox3Material = new BABYLON.StandardMaterial("skybox3Material", scene);
+            skybox3Material.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_rt.png", scene);
+            var skybox4Material = new BABYLON.StandardMaterial("skybox4Material", scene);
+            skybox4Material.ambientTexture = new BABYLON.Texture("./assets/images/redeclipse_lfk.png", scene);
+                
             var ceilingMaterial = new BABYLON.StandardMaterial("ceilingMaterial", scene);
                 ceilingMaterial.ambientTexture = new BABYLON.Texture("./assets/images/27.jpg", scene);
             var floorMaterial = new BABYLON.StandardMaterial("floorMaterial", scene);
@@ -306,6 +327,11 @@
                 picture28img.ambientTexture = new BABYLON.Texture("./assets/images/grade.png");
             
             //rendering the textures to the object
+            skyboxside1.material = skybox1Material;
+            skyboxside2.material = skybox1Material;
+            skyboxside3.material = skybox1Material;
+            skyboxside4.material = skybox1Material;
+
             ground.material = floorMaterial;
             ceiling.material = ceilingMaterial;
             box.material = boxMaterial;
