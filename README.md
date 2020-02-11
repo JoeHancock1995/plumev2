@@ -4,7 +4,7 @@ This is a project aimed at turning the plumesounding.com website into a walkable
 
 ### Images of project
 
-![](./assets/Screen Shot 2020-02-02 at 5.01.21 PM.png)
+![](https://github.com/JoeHancock1995/plumev2/blob/master/assets/Screen%20Shot%202020-02-02%20at%205.01.21%20PM.png)
 
 ![](./assets/Screen Shot 2020-02-02 at 5.01.53 PM.png)
 
