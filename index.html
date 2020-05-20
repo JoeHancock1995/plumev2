@@ -116,7 +116,7 @@
             var box9 = BABYLON.MeshBuilder.CreateBox("box9", {height: 16, width: 2, depth: 53.5}, scene);
             var box10 = BABYLON.MeshBuilder.CreateBox("box10", {height: 16, width: 2, depth: 51.5}, scene); // inner wall 2nd floor
             var box11 = BABYLON.MeshBuilder.CreateBox("box11", {height: 32, width: 54, depth: 2}, scene);
-            var box12 = BABYLON.MeshBuilder.CreateBox("box12", {height: 32, width: 19, depth: 2}, scene); // stair case side wall
+            var box12 = BABYLON.MeshBuilder.CreateBox("box12", {height: 32, width: 19, depth: 200}, scene); // stair case side wall
             var box13 = BABYLON.MeshBuilder.CreateBox("box13", {height: 32, width: 19, depth: 2}, scene); // stair case side walls
 
             var galleryCube = BABYLON.MeshBuilder.CreateBox("galleryCube", {height: 15, width: 2.5, depth: 2.5}, scene);
@@ -409,9 +409,9 @@
 
             //collisions
             scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
-            camera.applyGravity = false;
+            camera.applyGravity = true;
             camera.ellipsoid = new BABYLON.Vector3(2, 4, 2);
-            scene.collisionsEnabled = false;
+            scene.collisionsEnabled = true;
             camera.checkCollisions = true;
 
             ground.checkCollisions = true;
@@ -423,6 +423,7 @@
             box5.checkCollisions = true;
             box6.checkCollisions = true;
             box7.checkCollisions = true;
+            box12.checkCollisions = true;
             galleryCube.checkCollisions = true;
             galleryCube2.checkCollisions = true;
             galleryCube3.checkCollisions = true;
